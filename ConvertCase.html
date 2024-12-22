@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Transformation Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #input-text {
+            width: 80%;
+            padding: 10px;
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        #output-text {
+            width: 80%;
+            padding: 10px;
+            margin: 10px auto;
+            font-size: 16px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Transformation Tool</h1>
+    <input type="text" id="input-text" placeholder="Enter text here">
+    <br>
+    <button class="btn" onclick="transformText('sentence-case')">Sentence Case</button>
+    <button class="btn" onclick="transformText('lower-case')">Lower Case</button>
+    <button class="btn" onclick="transformText('upper-case')">UPPER CASE</button>
+    <button class="btn" onclick="transformText('capitalized-case')">Capitalized Case</button>
+    <button class="btn" onclick="transformText('alternating-case')">aLtErNaTiNg cAsE</button>
+    <button class="btn" onclick="transformText('title-case')">Title Case</button>
+    <button class="btn" onclick="transformText('inverse-case')">InVeRsE CaSe</button>
+    <div id="output-text"></div>
+    <button class="btn" id="copy-button">Copy to Clipboard</button>
+
+    <script>
+        function transformText(type) {
+            const inputText = document.getElementById("input-text").value;
+            let transformedText = '';
+
+            switch (type) {
+                case "sentence-case":
+                    transformedText = inputText.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, function(c) { return c.toUpperCase(); });
+                    break;
+                case "lower-case":
+                    transformedText = inputText.toLowerCase();
+                    break;
+                case "upper-case":
+                    transformedText = inputText.toUpperCase();
+                    break;
+                case "capitalized-case":
+                    transformedText = inputText.toLowerCase().replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+                    break;
+                case "alternating-case":
+                    for (let i = 0; i < inputText.length; i++) {
+                        if (i % 2 === 0) {
+                            transformedText += inputText[i].toLowerCase();
+                        } else {
+                            transformedText += inputText[i].toUpperCase();
+                        }
+                    }
+                    break;
+                case "title-case":
+                    transformedText = inputText.toLowerCase().replace(/(^|\s)\S/g, function(l) { return l.toUpperCase(); });
+                    break;
+                case "inverse-case":
+                    for (let i = 0; i < inputText.length; i++) {
+                        const char = inputText[i];
+                        if (char === char.toUpperCase()) {
+                            transformedText += char.toLowerCase();
+                        } else {
+                            transformedText += char.toUpperCase();
+                        }
+                    }
+                    break;
+                default:
+                    transformedText = inputText;
+                    break;
+            }
+
+            const outputText = document.getElementById("output-text");
+            outputText.textContent = transformedText;
+        }
+
+        const copyButton = document.getElementById("copy-button");
+        copyButton.addEventListener("click", function() {
+            const outputText = document.getElementById("output-text");
+            const textArea = document.createElement("textarea");
+            textArea.value = outputText.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+        });
+    </script>
+</body>
+</html>
