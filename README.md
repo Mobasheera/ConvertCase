@@ -1,2 +1,2 @@
 # ConvertCase
-ConvertCase is a simple easy to use text transformation tool.
+ConvertCase is a simple and easy to use text transformation tool.
