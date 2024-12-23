@@ -4,44 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Transformation Tool</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        #input-text {
-            width: 80%;
-            padding: 10px;
-            margin: 20px auto;
-            font-size: 16px;
-        }
-        #output-text {
-            width: 80%;
-            padding: 10px;
-            margin: 10px auto;
-            font-size: 16px;
-            border: 1px solid #ccc;
-        }
-        .btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 5px;
-        }
-    </style>
 </head>
-<body>
-    <h1>Text Transformation Tool</h1>
-    <input type="text" id="input-text" placeholder="Enter text here">
+<body style="font-family: Arial, sans-serif; text-align: center; background-color: #121212; color: #ffffff;">
+
+    <h1 style="color: #ffffff;">Text Transformation Tool</h1>
+
+    <input 
+        type="text" 
+        id="input-text" 
+        placeholder="Enter text here" 
+        style="width: 80%; padding: 10px; margin: 20px auto; font-size: 16px; background-color: #333333; color: #ffffff; border: 1px solid #555555;"
+    >
     <br>
-    <button class="btn" onclick="transformText('sentence-case')">Sentence Case</button>
-    <button class="btn" onclick="transformText('lower-case')">Lower Case</button>
-    <button class="btn" onclick="transformText('upper-case')">UPPER CASE</button>
-    <button class="btn" onclick="transformText('capitalized-case')">Capitalized Case</button>
-    <button class="btn" onclick="transformText('alternating-case')">aLtErNaTiNg cAsE</button>
-    <button class="btn" onclick="transformText('title-case')">Title Case</button>
-    <button class="btn" onclick="transformText('inverse-case')">InVeRsE CaSe</button>
-    <div id="output-text"></div>
-    <button class="btn" id="copy-button">Copy to Clipboard</button>
+
+    <button 
+        class="btn" 
+        onclick="transformText('sentence-case')" 
+        style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #444444; color: #ffffff; border: none; cursor: pointer;">
+        Sentence Case
+    </button>
+
+    <button 
+        class="btn" 
+        onclick="transformText('lower-case')" 
+        style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #444444; color: #ffffff; border: none; cursor: pointer;">
+        Lower Case
+    </button>
+
+    <button 
+        class="btn" 
+        onclick="transformText('upper-case')" 
+        style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #444444; color: #ffffff; border: none; cursor: pointer;">
+        UPPER CASE
+    </button>
+
+    <button 
+        class="btn" 
+        onclick="transformText('capitalized-case')" 
+        style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #444444; color: #ffffff; border: none; cursor: pointer;">
+        Capitalized Case
+    </button>
+
+    <button 
+        class="btn" 
+        onclick="transformText('alternating-case')" 
+        style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #444444; color: #ffffff; border: none; cursor: pointer;">
+        aLtErNaTiNg cAsE
+    </button>
+
+    <button 
+        class="btn" 
+        onclick="transformText('title-case')" 
+        style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #444444; color: #ffffff; border: none; cursor: pointer;">
+        Title Case
+    </button>
+
+    <button 
+        class="btn" 
+        onclick="transformText('inverse-case')" 
+        style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #444444; color: #ffffff; border: none; cursor: pointer;">
+        InVeRsE CaSe
+    </button>
+
+    <div 
+        id="output-text" 
+        style="width: 80%; padding: 10px; margin: 10px auto; font-size: 16px; background-color: #333333; color: #ffffff; border: 1px solid #555555;">
+    </div>
+
+    <button 
+        class="btn" 
+        id="copy-button" 
+        style="padding: 10px 20px; font-size: 16px; margin: 5px; background-color: #444444; color: #ffffff; border: none; cursor: pointer;">
+        Copy to Clipboard
+    </button>
 
     <script>
         function transformText(type) {
